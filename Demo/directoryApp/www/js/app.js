@@ -5,15 +5,78 @@
 // the 2nd parameter is an array of 'requires'
 angular.module('starter', ['ionic'])
 
-.run(function($ionicPlatform) {
-  $ionicPlatform.ready(function() {
-    // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-    // for form inputs)
-    if(window.cordova && window.cordova.plugins.Keyboard) {
-      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-    }
-    if(window.StatusBar) {
-      StatusBar.styleDefault();
-    }
-  });
-})
+    .run(function ($ionicPlatform) {
+        $ionicPlatform.ready(function () {
+            // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
+            // for form inputs)
+            if (window.cordova && window.cordova.plugins.Keyboard) {
+                cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+            }
+            if (window.StatusBar) {
+                StatusBar.styleDefault();
+            }
+        });
+    })
+    .config(function ($stateProvider, $urlRouterProvider) {
+        $stateProvider
+            .state('people', {
+                url: '/people',
+                controller: 'PeopleCtrl',
+                templateUrl: 'templates/people.html'
+            })
+            .state('person', {
+                url: '/person/:index',
+                controller: 'PersonCtrl',
+                templateUrl: 'templates/person.html',
+                resolve: {
+                    person: function ($stateParams, people) {
+                        return people.ready.then(function () {
+                            return people.list[$stateParams.index];
+                        });
+                    }
+                }
+            });
+
+        $urlRouterProvider.otherwise('/people');
+    })
+    .controller('PersonCtrl', function ($scope, person, people) {
+            $scope.person = person;
+    })
+    .controller('PeopleCtrl', function ($scope, people, $ionicLoading) {
+        $scope.people = people.list;
+
+        $scope.addPerson = function () {
+            people.add().then(function () {
+                $scope.$broadcast('scroll.refreshComplete');
+            });
+        };
+
+        $ionicLoading.show({
+            template: '<i class="ion-loading-c"></i><br />Loading...'
+        });
+
+        people.ready.then(function () {
+            $ionicLoading.hide();
+        });
+    })
+    .factory('people', function ($http, $q) {
+        var people = {};
+        var n = 0;
+        people.list = [];
+
+        people.add = function () {
+            return $http.get('http://api.randomuser.me?q' + (n++))
+                .then(function (response) {
+
+                    people.list.push(response.data.results[0].user);
+                });
+        };
+
+        people.ready = $q.all([
+            people.add(),
+            people.add(),
+            people.add()
+        ]);
+
+        return people;
+    });
