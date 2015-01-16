@@ -39,8 +39,18 @@ angular.module('starter', ['ionic'])
 
         $urlRouterProvider.otherwise('/people');
     })
-    .controller('PersonCtrl', function ($scope, person, people) {
-            $scope.person = person;
+    .controller('PersonCtrl', function ($scope, person, people, $ionicActionSheet) {
+        $scope.person = person;
+        $scope.deletePerson = function () {
+            $ionicActionSheet.show({
+                destructiveText: 'Delete ' + person.name.first,
+                cancelText: 'Cancel',
+                destructiveButtonClicked: function(){
+                    people.list.splice(people.list.indexOf(person), 1);
+                    window.history.back();
+                }
+            });
+        };
     })
     .controller('PeopleCtrl', function ($scope, people, $ionicLoading) {
         $scope.people = people.list;
