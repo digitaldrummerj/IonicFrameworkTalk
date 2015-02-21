@@ -1,8 +1,26 @@
 <ion-view title="Person">
     <ion-content>
+        <div class="bar bar-header bar-light">
             <button class="button-icon button-full assertive" ng-click="deletePerson()">
-                Delete User
+                <h3 class="assertive">Delete User</h3>
             </button>
-        {{person | json }}
+        </div>
+
+        <div class="list card">
+            <div class="item">
+                <h2>{{person.name.first}}</h2>
+        </div>
+            <div class="item item-image">
+            <img ng-src="{{person.picture.medium}}"/>
+            </div>
+            <div class="item item-body">
+
+        <p>{{person.location.street}}   {{person.location.city}}, {{person.location.state}} {{person.location.zip}}</p>
+        <p>{{person.email}}</p>
+        <p>{{person.phone}}</p>
+        <p>{{person.cell}}</p>
+</div>
+            </div>
+        {{ person | json}}
     </ion-content>
 </ion-view>
