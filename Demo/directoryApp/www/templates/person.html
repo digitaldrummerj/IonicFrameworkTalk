@@ -1,25 +1,22 @@
 <ion-view title="Person">
     <ion-content>
-        <div class="bar bar-header bar-light">
-            <button class="button-icon button-full assertive" ng-click="deletePerson()">
-                <h3 class="assertive">Delete User</h3>
-            </button>
-        </div>
+        <button class="button-icon button-full assertive" ng-click="deletePerson()">
+            <h3 class="assertive">Delete User</h3>
+        </button>
 
         <div class="list card">
             <div class="item">
-                <h2>{{person.name.first}}</h2>
-        </div>
-            <div class="item item-image">
-            <img ng-src="{{person.picture.medium}}"/>
+                <h1>{{person.name.first}}</h1>
+                <img ng-src="{{person.picture.medium}}"/>
             </div>
-            <div class="item item-body">
-
-        <p>{{person.location.street}}   {{person.location.city}}, {{person.location.state}} {{person.location.zip}}</p>
-        <p>{{person.email}}</p>
-        <p>{{person.phone}}</p>
-        <p>{{person.cell}}</p>
-</div>
+                    <p class="item item-icon-left"><i class="icon ion-home"></i>{{person.location.street}}   <br />
+                    {{person.location.city}}, {{person.location.state}}{{person.location.zip}}
+                    </p>
+                    <p class="item item-icon-left"><i class="icon ion-email"></i>{{person.email}}</p>
+                    <p class="item item-icon-left">
+                        <i class="icon ion-ios7-telephone"></i>{{person.phone}}
+                    </p>
+                    <p class="item item-icon-left"><i class="icon ion-iphone"></i>{{person.cell}}</p>
             </div>
         {{ person | json}}
     </ion-content>
