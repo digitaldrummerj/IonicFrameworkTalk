@@ -75,6 +75,10 @@ angular.module('starter', ['ionic'])
         people.ready = $q.all([
             people.add(),
             people.add(),
+            people.add(),
+            people.add(),
+            people.add(),
+            people.add(),
             people.add()
         ]);
 
