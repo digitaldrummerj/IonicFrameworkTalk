@@ -1,0 +1,13 @@
+{
+  "name": "talkDemo",
+  "app_id": "",
+  "gulpStartupTasks": [
+    "watch",
+    "sass",
+    "inject"
+  ],
+  "watchPatterns": [
+    "www/**/*",
+    "!www/lib/**/*"
+  ]
+}
