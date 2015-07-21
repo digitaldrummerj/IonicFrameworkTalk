@@ -15,6 +15,18 @@ $royal:                           #886aea !default;
 $dark:                            #444 !default;
 */
 
+.list.color-list-demo .item {
+  padding: 14px 15px 14px 15px; }
+
+.color-demo {
+  float: right;
+  width: 20px;
+  height: 20px;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 4px;
+  background: gray; }
+
 // The path for our ionicons font files, relative to the built CSS in www/css
 $ionicons-font-path: "../lib/ionic/fonts" !default;
 

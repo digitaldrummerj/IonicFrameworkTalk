@@ -27,6 +27,14 @@
                 }
               }
             })
+            .state('menu.tabs.colors', {
+              url: "/colors",
+              views: {
+                'colors-tab': {
+                  templateUrl: "demos/colors/colors.html"
+                }
+              }
+            })
             .state('menu.tabs.list', {
               url: "/list",
               views: {
