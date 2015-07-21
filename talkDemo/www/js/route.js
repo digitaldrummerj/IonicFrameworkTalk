@@ -68,7 +68,7 @@
                 }
               }
             })
-            .state('menu.slidebox', {
+           .state('menu.slidebox', {
               url: "/slidebox",
               views: {
                 'menuContent': {
