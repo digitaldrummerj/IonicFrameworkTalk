@@ -4,7 +4,7 @@
     .controller('ListController', ['$scope', 
         function ($scope) {        
           $scope.data = {
-            showDelete: false
+            showDelete: true
           };
         
           $scope.itemButtons = [

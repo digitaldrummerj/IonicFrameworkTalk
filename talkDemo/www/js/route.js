@@ -77,6 +77,14 @@
                 }
               }
             })
+             .state('menu.spinners', {
+              url: "/spinners",
+              views: {
+                'menuContent': {
+                  templateUrl: "demos/spinners/spinners.html"
+                }
+              }
+            })
             .state('menu.about', {
               url: "/about",
               views: {
@@ -120,24 +128,47 @@
                     }
                 }               
             })
-            //  .state('menu.collectionrepeat.collectionrepeatbasic', {
-            //     url: '/collectionrepeatbasic',
-            //     views: {
-            //         'basic-tab': {
-            //             templateUrl: "demos/collectionrepeat/basic/collectionrepeatbasic.html",
-            //             controller: 'CollectionRepeatBasicController'
-            //         }
-            //     }
-            // })
-            // .state('menu.collectionrepeat.collectionrepeatwithdivider', {
-            //     url: '/collectionrepeatwithdivider',
-            //     views: {
-            //         'divider-tab': {
-            //             templateUrl: "demos/collectionrepeat/withdivider/CollectionRepeatWithDivider.html",
-            //             controller: 'CollectionRepeatWithDividerController'
-            //         } 
-            //     }
-            // })
+             .state('menu.cards', {
+              url: "/cards",
+              views: {
+                'menuContent' :{
+                  templateUrl: "demos/cards/cardtabs.html"
+                }
+              }
+            })
+            .state('menu.cards.cardabout', {
+                url: '/cardabout',
+                    views: {
+                    'about-tab' : {
+                        templateUrl: "demos/cards/cardabout.html"
+                    }
+                }               
+            })
+             .state('menu.cards.cardbasic', {
+                    url: '/cardbasic',
+                    views: {
+                    'basic-tab' : {
+                        templateUrl: "demos/cards/cardbasic.html"
+                    }
+                }               
+            })
+             .state('menu.cards.cardlist', {
+                    url: '/cardlist',
+                    views: {
+                    'list-tab' : {
+                        templateUrl: "demos/cards/cardlist.html"
+                    }
+                }               
+            })
+            .state('menu.cards.cardshowcase', {
+                    url: '/cardshowcase',
+                    views: {
+                    'showcase-tab' : {
+                        templateUrl: "demos/cards/cardshowcase.html"
+                    }
+                }               
+            })
+            
             ;
             
           $urlRouterProvider.otherwise("menu/tab/buttons");

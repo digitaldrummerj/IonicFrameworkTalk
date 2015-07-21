@@ -2,12 +2,29 @@
       <ion-content class="padding">
         <h2>Examples of Ionic buttons</h2>
 
-        <h3>Popup, Actionsheet and Modal.</h3>
+        <h3>Actionsheet and Modal.</h3>
         
         <p>
-          <a class="button icon icon-left button-assertive" ng-click="showPopup()">Popup</a>
+         
           <a class="button icon icon-left button-energized" ng-click="showActionsheet()">Action Sheet</a>
           <a class="button icon icon-left button-balanced" ng-click="modal.show()">Modal</a>
+        </p>
+        
+        <h3>Popup</h3>
+        <p>
+            <a class="button icon icon-left button-assertive" ng-click="showPopup()">Basic</a>
+              <button class="button button-dark" ng-click="templatePopup()">
+                  Template
+                </button>
+                <button class="button button-primary" ng-click="showConfirm()">
+                  Confirm
+                </button>
+                <button class="button button-positive" ng-click="showAlert()">
+                  Alert
+                </button>
+                <script id="popup-template.html" type="text/ng-template">
+                  <input ng-model="data.wifi" type="text" placeholder="Password">
+                </script>
         </p>
         <h3>Icon Buttons</h3>
         <p>
