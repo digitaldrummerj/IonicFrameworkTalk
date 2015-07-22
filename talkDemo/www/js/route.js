@@ -79,6 +79,15 @@
                                    }
                               }
                          })
+                         .state('menu.pulltorefresh', {
+                              url: "/pulltorefresh",
+                              views: {
+                                   'menuContent': {
+                                        templateUrl: "demos/pulltorefresh/pulltorefresh.html",
+                                        controller: 'PullToRefreshController'
+                                   }
+                              }
+                         })
                          .state('menu.platformicons', {
                               url: "/platformicons",
                               views: {
