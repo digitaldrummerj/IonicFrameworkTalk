@@ -46,10 +46,11 @@
                               }
                          })
                          .state('menu.tabs.item', {
-                              url: "/item",
+                              url: "/item/:index",
                               views: {
                                    'list-tab': {
-                                        templateUrl: "demos/masterdetail/item.html"
+                                        templateUrl: "demos/masterdetail/item.html",
+                                        controller: "ItemController"
                                    }
                               }
                          })

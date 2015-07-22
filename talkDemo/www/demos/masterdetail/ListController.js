@@ -2,8 +2,8 @@
      "use strict";
      angular.module('talkDemo')
           .controller('ListController', [
-               '$scope',
-               function($scope) {
+               '$scope', 'ListService',
+               function($scope, ListService) {
                     $scope.data = {
                          shouldShowDelete: false,
                          shouldShowReorder: false,
@@ -26,28 +26,10 @@
                          $scope.items.splice($scope.items.indexOf(item), 1);
                     };
 
-                    $scope.items = [
-                         { id: 0 },
-                         { id: 1 },
-                         { id: 2 },
-                         { id: 3 },
-                         { id: 4 },
-                         { id: 5 },
-                         { id: 6 },
-                         { id: 7 },
-                         { id: 8 },
-                         { id: 9 },
-                    ];
+                    $scope.items = ListService.GetItems();
 
 
-                    $scope.angularItems = [
-                         { id: 'Angular Item 1' },
-                         { id: 'Angular Item 2' },
-                         { id: 'Angular Item 3' },
-                         { id: 'Angular Item 4' },
-                         { id: 'Angular Item 5' },
-                         { id: 'Angular Item 6' }
-                    ];
+                    $scope.angularItems = ListService.GetAngularItems();
 
                }
           ]);
