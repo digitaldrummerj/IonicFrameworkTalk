@@ -110,13 +110,21 @@
                                    }
                               }
                          })
+                         .state('menu.collectionrepeat.ngrepeatperf', {
+                              url: '/ngrepeatperf',
+                              views: {
+                                   'ngrepeatperf-tab': {
+                                        templateUrl: "demos/collectionrepeat/ngrepeatperf/ngrepeatperf.html",
+                                        controller: "NgRepeatPerfController"
+                                   }
+                              }
+                         })
                          .state('menu.collectionrepeat.crbasic', {
                               url: '/crbasic',
                               views: {
                                    'basic-tab': {
                                         templateUrl: "demos/collectionrepeat/basic/collectionrepeatbasic.html",
                                         controller: "CollectionRepeatBasicController"
-
                                    }
                               }
                          })
