@@ -70,6 +70,24 @@
                                    }
                               }
                          })
+                          .state('menu.batterystatus', {
+                               url: "/batterystatus",
+                               views: {
+                                    'menuContent': {
+                                         templateUrl: "demos/batterystatus/batterystatus.html",
+                                         controller: "BatteryStatusController"
+                                    }
+                               }
+                          })
+                         .state('menu.viewrawjson', {
+                              url: "/viewrawjson",
+                              views: {
+                                   'menuContent': {
+                                        templateUrl: "demos/viewrawjson/viewrawjson.html",
+                                        controller: "ViewRawJsonController"
+                                   }
+                              }
+                         })
                          .state('menu.slidebox', {
                               url: "/slidebox",
                               views: {
