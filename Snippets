@@ -1,0 +1,168 @@
+///////////////////////////////
+--------------------------
+///////////////////////////////
+//People
+///////////////////////////////
+//People Router
+.config(function ($stateProvider) {
+        $stateProvider.state('people', {
+            url: '/people',
+            controller: 'PeopleCtrl',
+            templateUrl: 'templates/people.html'
+        });
+    });
+
+///////////////////////////////
+//router otherwise
+$urlRouterProvider.otherwise('/people');
+
+///////////////////////////////
+//Main Index page
+<ion-nav-bar>
+	<ion-nav-back-button>
+		Back
+	</ion-nav-back-button>
+</ion-nav-bar>
+<ion-nav-view></ion-nav-view>
+
+///////////////////////////////
+//People Html
+<ion-view title="People">
+    <ion-content>
+        <ion-refresher on-refresh="addPerson()"></ion-refresher>
+        <ion-list>
+            <ion-item class="item-avatar item item-icon-right" ng-repeat="person in people" ng-href="#/person/{{$index}}">
+
+                <img ng-src="{{person.picture.thumbnail}}"/>
+
+                <h2>{{person.name.first}}</h2>
+
+                <p>{{person.email}}</p>
+
+                <i class="icon ion-chevron-right icon-accessory"></i>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>
+
+///////////////////////////////
+//People Ctrl
+.controller('PeopleCtrl', function ($scope) {
+
+    })
+
+///////////////////////////////
+//People Service
+.factory('people', function ($http, $q) {
+    var people = {};
+    var n = 0;
+    people.list = [];
+
+    people.add = function (numberToReturn) {
+        return $http.get('http://api.randomuser.me?q' + (n++) + '&result=' + numberToReturn)
+            .then(function (response) {
+
+                people.list.push(response.data.results[0].user);
+            });
+    };
+
+    people.ready = $q.all([
+        people.add(4)
+    ]);
+
+    return people;
+});
+
+
+///////////////////////////////
+//People to Scope
+$scope.people = people.list;
+
+
+///////////////////////////////
+--------------------------
+///////////////////////////////
+// Section: Person
+///////////////////////////////
+// Add Del Button
+ <button class="button-icon button-full assertive" ng-click="deleteUser()">
+                Delete User
+            </button>
+
+///////////////////////////////
+// Ctrl Delete Person
+$scope.deletePerson = function () {
+            $ionicActionSheet.show({
+                destructiveText: 'Delete ' + person.name.first,
+                cancelText: 'Cancel',
+                destructiveButtonClicked: function(){
+                    people.list.splice(people.list.indexOf(person), 1);
+                    window.history.back();
+                }
+            });
+        };
+///////////////////////////////
+//Person Html 1
+<ion-view title="Person">
+    <ion-content>
+    {{person | json }}
+    </ion-content>
+</ion-view>
+
+///////////////////////////////
+//Person Ctrl
+.controller('PersonCtrl', function ($scope, person, people) {
+            $scope.person = person;
+    })
+///////////////////////////////
+//Person Router State
+.state('person', {
+                url: '/person/:index',
+                controller: 'PersonCtrl',
+                templateUrl: 'templates/person.html',
+                resolve: {
+                    person: function ($stateParams, people) {
+                        return people.ready.then(function () {
+                            return people.list[$stateParams.index];
+                        });
+                    }
+                }
+            });
+
+
+///////////////////////////////
+
+///////////////////////////////
+--------------------------
+///////////////////////////////
+//Spinner Loading
+///////////////////////////////
+//Spin to People Ctrl
+$ionicLoading.show({
+            template: 'Loading...'
+        });
+
+        people.ready.then(function(){
+            $ionicLoading.hide();
+        })
+
+///////////////////////////////
+//Html Spinner
+<i class="ion-loading-c"></i><br />
+///////////////////////////////
+--------------------------
+///////////////////////////////
+// Section: Refresh
+
+///////////////////////////////
+//Refresh
+<ion-refresher on-refresh="addPerson()"></ion-refresher>
+
+///////////////////////////////
+// add a person on refresh
+$scope.addPerson = function(){
+            people.add(1).then(function(){
+                $scope.$broadcast('scroll.refreshComplete');
+            });
+        };
+
