@@ -8,6 +8,7 @@ var minifyCss = require('gulp-minify-css');
 var rename = require('gulp-rename');
 var sh = require('shelljs');
 var inject = require('gulp-inject');
+var debug = require('gulp-debug');
 
 var paths = {
   sass: ['./scss/**/*.scss'],
@@ -33,7 +34,7 @@ gulp.task('sass', function(done) {
     .pipe(gulp.dest('./www/css/'))
     .pipe(minifyCss({
       keepSpecialComments: 0
-    }))
+   }))
     .pipe(rename({ extname: '.min.css' }))
     .pipe(gulp.dest('./www/css/'))
     .on('end', done);
@@ -65,12 +66,14 @@ gulp.task('git-check', function(done) {
 });
 
 gulp.task('inject', function() {
-   return gulp.src('./www/index.html')
-        .pipe(inject(
-            gulp.src(paths.javascript,
-                {read: false}), {relative: true}))
-        .pipe(inject(
-            gulp.src(paths.css,
-               {read: false}), {relative: true}))
-        .pipe(gulp.dest('./www'));  
+  // gulp.src('./www/index.html')  
+  //    .pipe(inject(gulp.src(paths.css, { read: false }), { relative: true }))
+  //   .pipe(gulp.dest('./www'));  
+  //   
+   gulp.src('./www/index.html')
+    .pipe(inject(gulp.src(paths.javascript, { read: false }), { relative: true }))
+    .pipe(gulp.dest('./www'))
+  
+    
+
 });
