@@ -1,5 +1,3 @@
-(function () {
-    "use strict";
 
     angular.module('talkDemo')
         .service('CollectionRepeatService', ['$q', '$http',
@@ -24,4 +22,3 @@
         };
 	 
 	  }]);
-}());

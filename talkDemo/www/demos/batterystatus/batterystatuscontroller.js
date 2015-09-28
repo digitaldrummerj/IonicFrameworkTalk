@@ -1,6 +1,4 @@
-﻿(function () {
-     "use strict";
-     angular.module('talkDemo')
+﻿     angular.module('talkDemo')
      .controller('BatteryStatusController', [
        '$scope', '$rootScope', '$ionicPlatform', '$cordovaBatteryStatus',
        function ($scope, $rootScope, $ionicPlatform, $cordovaBatteryStatus) {
@@ -8,14 +6,15 @@
             $ionicPlatform.ready(function () {
                  console.log('ionicPlatform.ready function');
 
-                 $rootScope.$on("$cordovaBatteryStatus:status", function (event, args) {
-                      console.log('battery status');
-                      if (args.isPlugged) {
-                           alert("Charging -> " + args.level + "%");
+                 $rootScope.$on("$cordovaBatteryStatus:status", function (result) {
+                   console.log('battery status');
+                   $scope.batterylevel = result.level;
+                   $scope.isPluggedIn = result.isPlugged;
+                      if ($scope.isPlugged) {
+                        $scope.message = "Charging -> " + $scope.batterylevel + "%";
                       } else {
-                           alert("Battery -> " + args.level + "%");
+                        $scope.message = "Battery -> " + $scope.batterylevel + "%";
                       }
                  });
             });
        }]);
-}());

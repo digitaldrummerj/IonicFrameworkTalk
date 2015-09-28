@@ -1,6 +1,6 @@
 {
   "name": "talkDemo",
-  "app_id": "",
+  "app_id": "ff8ce7c2",
   "gulpStartupTasks": [
     "watch",
     "sass",

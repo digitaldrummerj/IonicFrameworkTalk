@@ -1,9 +1,7 @@
-(function() {
-     "use strict";
      angular.module('talkDemo')
           .config([
                '$stateProvider', '$urlRouterProvider',
-               function($stateProvider, $urlRouterProvider) {
+               function ($stateProvider, $urlRouterProvider) {
                     $stateProvider
                          .state('menu', {
                               url: "/menu",
@@ -132,7 +130,8 @@
                               }
                          })
                          .state('menu.collectionrepeat', {
-                              url: "/collectionrepeat",
+                             url: "/collectionrepeat",
+                              abstract: true,
                               views: {
                                    'menuContent': {
                                         templateUrl: "demos/collectionrepeat/collectionrepeattabs.html"
@@ -142,7 +141,7 @@
                          .state('menu.collectionrepeat.ngrepeatperf', {
                               url: '/ngrepeatperf',
                               views: {
-                                   'ngrepeatperf-tab': {
+                                   'cr-ngrepeatperf-tab': {
                                         templateUrl: "demos/collectionrepeat/ngrepeatperf/ngrepeatperf.html",
                                         controller: "NgRepeatPerfController"
                                    }
@@ -151,7 +150,7 @@
                          .state('menu.collectionrepeat.crbasic', {
                               url: '/crbasic',
                               views: {
-                                   'basic-tab': {
+                                   'cr-basic-tab': {
                                         templateUrl: "demos/collectionrepeat/basic/collectionrepeatbasic.html",
                                         controller: "CollectionRepeatBasicController"
                                    }
@@ -160,7 +159,7 @@
                          .state('menu.collectionrepeat.crwithdivider', {
                               url: '/crwithdivider',
                               views: {
-                                   'divder-tab': {
+                                   'cr-divder-tab': {
                                         templateUrl: "demos/collectionrepeat/withdivider/collectionrepeatdivider.html",
                                         controller: "CollectionRepeatDividerController"
                                    }
@@ -169,13 +168,14 @@
                          .state('menu.collectionrepeat.crabout', {
                               url: '/crabout',
                               views: {
-                                   'about-tab': {
+                                   'cr-about-tab': {
                                         templateUrl: "demos/collectionrepeat/collectionrepeatabout.html"
                                    }
                               }
                          })
                          .state('menu.cards', {
-                              url: "/cards",
+                             url: "/cards",
+                                abstract: true,
                               views: {
                                    'menuContent': {
                                         templateUrl: "demos/cards/cardtabs.html"
@@ -185,7 +185,7 @@
                          .state('menu.cards.cardabout', {
                               url: '/cardabout',
                               views: {
-                                   'about-tab': {
+                                   'card-about-tab': {
                                         templateUrl: "demos/cards/cardabout.html"
                                    }
                               }
@@ -193,7 +193,7 @@
                          .state('menu.cards.cardbasic', {
                               url: '/cardbasic',
                               views: {
-                                   'basic-tab': {
+                                   'card-basic-tab': {
                                         templateUrl: "demos/cards/cardbasic.html"
                                    }
                               }
@@ -201,7 +201,7 @@
                          .state('menu.cards.cardlist', {
                               url: '/cardlist',
                               views: {
-                                   'list-tab': {
+                                   'card-list-tab': {
                                         templateUrl: "demos/cards/cardlist.html"
                                    }
                               }
@@ -209,7 +209,7 @@
                          .state('menu.cards.cardshowcase', {
                               url: '/cardshowcase',
                               views: {
-                                   'showcase-tab': {
+                                   'card-showcase-tab': {
                                         templateUrl: "demos/cards/cardshowcase.html"
                                    }
                               }
@@ -218,4 +218,3 @@
                     $urlRouterProvider.otherwise("menu/tab/buttons");
                }
           ]);
-}());

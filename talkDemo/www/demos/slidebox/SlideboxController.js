@@ -1,5 +1,3 @@
-(function () {
-  "use strict";
     angular.module('talkDemo')
     .controller('SlideboxController', 
         ['$scope', '$ionicSlideBoxDelegate',
@@ -9,4 +7,3 @@
           }             
         }
      ]);              
-}());    

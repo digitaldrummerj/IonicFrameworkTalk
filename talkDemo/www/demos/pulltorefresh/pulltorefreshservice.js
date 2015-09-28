@@ -1,6 +1,4 @@
-﻿(function() {
-     "use strict";
-
+﻿
      angular.module('talkDemo')
           .factory('PullToRefreshService', [
                '$http', function($http) {
@@ -24,4 +22,3 @@
                     }
                }
           ]);
-}());

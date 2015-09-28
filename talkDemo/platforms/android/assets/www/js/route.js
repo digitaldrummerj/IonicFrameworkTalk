@@ -12,7 +12,8 @@
                               controller: 'MenuController'
                          })
                          .state('menu.tabs', {
-                              url: "/tab",
+                             url: "/tab",
+                              abstract: true,
                               views: {
                                    'menuContent': {
                                         templateUrl: "demos/tabs/tabs.html"

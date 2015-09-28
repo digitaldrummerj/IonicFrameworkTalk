@@ -1,6 +1,4 @@
-﻿(function() {
-     "use strict";
-     angular.module('talkDemo')
+﻿     angular.module('talkDemo')
           .controller('PullToRefreshController', [
                '$scope', 'PullToRefreshService', function($scope, PullToRefreshService) {
                     $scope.contacts = [];
@@ -20,4 +18,3 @@
                     };
                }
           ]);
-}());

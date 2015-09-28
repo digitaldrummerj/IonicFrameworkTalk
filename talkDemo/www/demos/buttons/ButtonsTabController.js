@@ -1,5 +1,3 @@
-(function () {
-  "use strict";
     angular.module('talkDemo')
     .controller('ButtonsTabController', [
       '$scope', '$ionicPopup', '$ionicActionSheet', '$ionicModal',
@@ -90,4 +88,3 @@
             });
         };
     }]);
-}());    

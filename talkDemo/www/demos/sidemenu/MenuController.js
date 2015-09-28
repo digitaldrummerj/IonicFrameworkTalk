@@ -1,5 +1,3 @@
-(function () {
-  "use strict";
   angular.module('talkDemo')
     .controller('MenuController', [
       '$scope',
@@ -13,4 +11,3 @@
             animation: 'slide-in-up'
           });
       }]);
-}());

@@ -1,5 +1,4 @@
-﻿(function () {
-  "use strict";
+﻿
   angular.module('talkDemo')
     .controller("NgRepeatPerfController", ['$scope', 'CollectionRepeatService', '$ionicScrollDelegate',
         function ($scope, CollectionRepeatService, $ionicScrollDelegate) {
@@ -12,4 +11,3 @@
          
         $scope.scrollTop = $ionicScrollDelegate.scrollTop.bind($ionicScrollDelegate);
     }]);
-}());
