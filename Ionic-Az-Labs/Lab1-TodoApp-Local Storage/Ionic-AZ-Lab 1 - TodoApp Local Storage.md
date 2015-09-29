@@ -78,7 +78,7 @@ In this section we will be creating the initial ionic project.
 
 1. Run the ionic start command to create your project
 
-		$ ionic start todoApp blank
+		$ ionic start todoApp https://github.com/Ionic-AZ/todoAppTemplate
 
 1. You should see output like this screenshot if everything is working correctly.    
 		![Ionic Start Output](images/IonicStart.png)
@@ -89,8 +89,44 @@ In this section we will be creating the initial ionic project.
 1. You should see a web browser open and the page will look like the following
 		![Ionic Serve Output](images/IonicServeAfterProjectCreate.png)
 
-##Section 3: 
+##Section 3: Add the Task View
+
+In the templates folder, there is a file called task.html.  This file will be used to show the task for the selected project.  Right now, it is just a shell of a file.
+
+The first thing we need to do is wire this up to the router so that the task.html file becomes the default view.
+
+###Section 3.1: Adding the Route
+1.  Open the www\js\app.js
+1.  Add new route for the task page by copying the app.about route
+	* state: "app.tasks"
+	* url: "/tasks"
+	* templateUrl: "templates/tasks.html
+1. Add a controller to the app.tasks view.  
+	* controller: 'ToDoController' 
 	
+
+###Section 3.2: Making the Task page the default
+
+To make the app.task route we added the default route, we need to update the otherwise route.
+
+**Note:** When specifying the route in the urls like otherwise uses, the periods in the route name become forward slashes (/).
+
+###Section 3.3: Verify that the task page is now the default route
+
+* If you still have the ionic serve running, then the browser should refresh automatically for you.  
+* If you do not have ionic serve running:
+ 	1. Open a command prompt or terminal
+	1. Navigate to your todoApp directory (e.g. c:\projects\todoApp)
+	1. Run:
+		
+			ionic serve
+
+* You may have noticed that the task view did not automatically appear.  This is because the url was set to #/app/about.  You need to remove #/app/about from the url.  
+* Your page should now look like:
+
+	![Initial Task View](images/InitialTaskView.png)
+
+
 
 Steps:
 
