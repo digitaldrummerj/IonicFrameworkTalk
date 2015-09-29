@@ -88,4 +88,32 @@ In this section we will be creating the initial ionic project.
 
 1. You should see a web browser open and the page will look like the following
 		![Ionic Serve Output](images/IonicServeAfterProjectCreate.png)
+
+##Section 3: 
 	
+
+Steps:
+
+* update index page
+* Create tasks.html
+* Create task modal
+* Create project modal
+* Add menu
+* Add plug button
+* dynamically create menu items
+* Todo Controller
+	* Add File
+	* Get Project
+	* Add Task
+	* Update project display when new project is selected
+	* Cancel New Task modal
+* Menu Controller
+	* Add File
+	* Add Project
+	* Select Project
+	* cancel new project modal
+	* Delete Project 
+	* Show add project is no projects created
+* Routing
+	* Add task.html route
+	* Add About route
