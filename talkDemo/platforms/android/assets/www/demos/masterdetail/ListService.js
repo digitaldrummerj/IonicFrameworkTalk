@@ -1,6 +1,4 @@
-﻿(function() {
-     "use strict";
-
+﻿
 angular.module('talkDemo')
      .factory('ListService', [function() {
           var items = [
@@ -37,4 +35,3 @@ angular.module('talkDemo')
                }
           }
      }]);
-}());

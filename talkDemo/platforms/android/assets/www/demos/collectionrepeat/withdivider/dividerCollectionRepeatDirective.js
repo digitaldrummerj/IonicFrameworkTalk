@@ -1,5 +1,3 @@
-(function () {
-  "use strict";
     angular.module('talkDemo')
         .directive('dividerCollectionRepeat', ['$parse', function($parse) {
           return {
@@ -26,4 +24,3 @@
             };
           }
         }]);
-}());    

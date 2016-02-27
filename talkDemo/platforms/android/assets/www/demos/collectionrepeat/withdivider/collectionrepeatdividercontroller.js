@@ -1,5 +1,3 @@
-(function () {
-  "use strict";
     angular.module('talkDemo')
     .controller('CollectionRepeatDividerController', 
         ['$scope', '$ionicScrollDelegate', 'filterFilter', '$http', 'CollectionRepeatService',
@@ -12,5 +10,3 @@
                 
         $scope.scrollTop = $ionicScrollDelegate.scrollTop.bind($ionicScrollDelegate);  
     }]);
-}());    
-    

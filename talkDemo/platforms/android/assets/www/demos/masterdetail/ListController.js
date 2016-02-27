@@ -1,5 +1,3 @@
-(function() {
-     "use strict";
      angular.module('talkDemo')
           .controller('ListController', [
                '$scope', 'ListService',
@@ -33,4 +31,3 @@
 
                }
           ]);
-}());
