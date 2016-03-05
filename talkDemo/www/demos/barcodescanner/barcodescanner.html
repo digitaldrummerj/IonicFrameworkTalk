@@ -1,0 +1,12 @@
+
+<ion-view view-title="Barcode Scanner">
+  <ion-content>
+    
+    <button class="button" ng-click="scan()">
+      Scan
+    </button>
+    
+    <h2>Results</h2>
+    <pre>{{ scanResult | json}}</pre>
+  </ion-content>
+</ion-view>

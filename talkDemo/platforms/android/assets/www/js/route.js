@@ -78,6 +78,15 @@ angular.module('talkDemo')
                         }
                     }
                 })
+                 .state('menu.barcodescanner', {
+                    url: "/barcodescanner",
+                    views: {
+                        'menuContent': {
+                            templateUrl: "demos/barcodescanner/barcodescanner.html",
+                            controller: "BarcodeScannerController"
+                        }
+                    }
+                })
                 .state('menu.camera', {
                     url: "/camera",
                     views: {
