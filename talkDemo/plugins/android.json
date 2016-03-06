@@ -30,6 +30,12 @@
         },
         "phonegap-plugin-barcodescanner": {
             "PACKAGE_NAME": "com.digitaldrummerj.ionictalkdemo"
+        },
+        "cordova-plugin-network-information": {
+            "PACKAGE_NAME": "com.digitaldrummerj.ionictalkdemo"
+        },
+        "cordova-plugin-flashlight": {
+            "PACKAGE_NAME": "com.digitaldrummerj.ionictalkdemo"
         }
     },
     "dependent_plugins": {}

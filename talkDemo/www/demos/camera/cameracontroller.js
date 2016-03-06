@@ -2,7 +2,11 @@ angular.module('talkDemo')
     .controller('CameraController', [
         '$scope', '$ionicPlatform', ' $cordovaCamera',
         function ($scope, $ionicPlatform, $cordovaCamera) {
-            
+             $ionicPlatform.ready(function () {
+                if (!ionic.Platform.isWebView()) {
+                    alert('This page doesn\'t work.');
+                }
+            });
 //             $scope.takeImage = function () {
 //                 $ionicPlatform.ready(function () {
 //                     var options = {

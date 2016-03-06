@@ -78,7 +78,7 @@ angular.module('talkDemo')
                         }
                     }
                 })
-                 .state('menu.barcodescanner', {
+                .state('menu.barcodescanner', {
                     url: "/barcodescanner",
                     views: {
                         'menuContent': {
@@ -87,6 +87,25 @@ angular.module('talkDemo')
                         }
                     }
                 })
+                .state('menu.networkinfo', {
+                    url: "/networkinfo",
+                    views: {
+                        'menuContent': {
+                            templateUrl: "demos/networkinfo/network.html",
+                            controller: "NetworkInfoController"
+                        }
+                    }
+                })
+                .state('menu.flashlight', {
+                    url: "/flashlight",
+                    views: {
+                        'menuContent': {
+                            templateUrl: "demos/flashlight/flashlight.html",
+                            controller: "FlashlightController"
+                        }
+                    }
+                })
+
                 .state('menu.camera', {
                     url: "/camera",
                     views: {

@@ -3,6 +3,11 @@ angular.module('talkDemo')
         '$scope', '$rootScope', '$ionicPlatform', '$cordovaBarcodeScanner',
         function ($scope, $rootScope, $ionicPlatform, $cordovaBarcodeScanner) {
 
+            $ionicPlatform.ready(function () {
+                if (!ionic.Platform.isWebView()) {
+                    alert('Barcode Scanner Only Works on Device');
+                }
+            });
             $scope.scan = function () {
                 $ionicPlatform.ready(function () {
                     if (ionic.Platform.isWebView()) {

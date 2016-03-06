@@ -1,18 +1,21 @@
      angular.module('talkDemo')
           .controller('ListController', [
-               '$scope', 'ListService',
-               function($scope, ListService) {
+               '$scope', 'ListService', '$ionicListDelegate',
+               function($scope, ListService, $ionicListDelegate) {
                     $scope.data = {
                          shouldShowDelete: false,
                          shouldShowReorder: false,
                          listCanSwipe: true
                     };
 
-                    $scope.edit = function(item) {
-                         alert('Edit Item: ' + item.id);
+                    $scope.edit = function (item) {
+                        $ionicListDelegate.closeOptionButtons();
+                        alert('Edit Item: ' + item.id);
+                        
                     };
-                    $scope.share = function(item) {
-                         alert('Share Item: ' + item.id);
+                    $scope.share = function (item) {
+                        $ionicListDelegate.closeOptionButtons();
+                        alert('Share Item: ' + item.id);
                     };
 
                     $scope.moveItem = function(item, fromIndex, toIndex) {
