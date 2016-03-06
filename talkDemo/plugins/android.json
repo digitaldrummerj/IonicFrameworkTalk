@@ -36,7 +36,14 @@
         },
         "cordova-plugin-flashlight": {
             "PACKAGE_NAME": "com.digitaldrummerj.ionictalkdemo"
+        },
+        "cordova-plugin-media-capture": {
+            "PACKAGE_NAME": "com.digitaldrummerj.ionictalkdemo"
         }
     },
-    "dependent_plugins": {}
+    "dependent_plugins": {
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "com.digitaldrummerj.ionictalkdemo"
+        }
+    }
 }
