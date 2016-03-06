@@ -9,13 +9,17 @@
                     };
 
                     $scope.edit = function (item) {
-                        $ionicListDelegate.closeOptionButtons();
-                        alert('Edit Item: ' + item.id);
+                        //$ionicListDelegate.closeOptionButtons();
                         
+                        alert('Edit Item: ' + item.id);
+                        $ionicListDelegate.$getByHandle('optionslist').closeOptionButtons();
                     };
+                    
                     $scope.share = function (item) {
-                        $ionicListDelegate.closeOptionButtons();
+                        // $ionicListDelegate.closeOptionButtons();
+                        
                         alert('Share Item: ' + item.id);
+                        $ionicListDelegate.$getByHandle('optionslist').closeOptionButtons();
                     };
 
                     $scope.moveItem = function(item, fromIndex, toIndex) {
